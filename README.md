@@ -6,6 +6,8 @@ Implementation based on TFHE homomorphic crypto library.
 you must pre-install TFHE to run the codes.
 
 Compile options
+  
+  
   original.cpp  g++ original.cpp -o original -ltfhe-spqlios-fma -lpthread -std=c++11
   
   proposed.cpp  g++ proposed.cpp -o proposed -ltfhe-spqlios-fma -lpthread -std=c++11
