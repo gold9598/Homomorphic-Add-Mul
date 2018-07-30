@@ -28,5 +28,5 @@ Mode of calculations
   3,4 : It is for test...
 
 When you want to check "real elapsed time"
-  time ./original <argument1> <argument2> <mode of calculation> <Number of bits for arguments>
+  time ./original ... <argument1> <argument2> <mode of calculation> <Number of bits for arguments>
   
