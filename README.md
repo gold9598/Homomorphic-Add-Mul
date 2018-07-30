@@ -17,8 +17,14 @@ Run options
   ./proposed <argument1> <argument2> <mode of calculation> <Number of bits for arguments>
   
 Mode of calculations
+
+
   1 : Addition
+  
+  
   2 : Multiplication
+  
+  
   3,4 : It is for test...
 
 When you want to check "real elapsed time"
