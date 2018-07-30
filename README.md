@@ -13,8 +13,8 @@ Compile options
   proposed.cpp -> g++ proposed.cpp -o proposed -ltfhe-spqlios-fma -lpthread -std=c++11
 
 Run options
-  ./original argument1 argument2 Mode of calculation Number of bits for arguments
-  ./proposed argument1 argument2 Mode of calculation Number of bits for arguments
+  ./original argument1, argument2, Mode of calculation, Number of bits for arguments
+  ./proposed argument1, argument2, Mode of calculation, Number of bits for arguments
   
 Mode of calculations
 
@@ -28,5 +28,5 @@ Mode of calculations
   3,4 : It is for test...
 
 When you want to check "real elapsed time"
-  time ./original argument1 argument2 Mode of calculation Number of bits for arguments
+  time ./original argument1, argument2, Mode of calculation, Number of bits for arguments
   
