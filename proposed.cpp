@@ -92,6 +92,11 @@ LweSample* CipherAdd(LweSample* a,LweSample* b,const TFheGateBootstrappingCloudK
 	{
 		if(i == bitsize-1)
 		{
+
+			LweSample *b1,*b2;
+			b1 = new_gate_bootstrapping_ciphertext(EK->params);
+			b2 = new_gate_bootstrapping_ciphertext(EK->params);		
+
 			for(int num =0 ; num<2; num++)	in[num]= (struct CalcSet*)malloc(sizeof(struct CalcSet));
 
 			in[0]->r = carry;
@@ -107,8 +112,9 @@ LweSample* CipherAdd(LweSample* a,LweSample* b,const TFheGateBootstrappingCloudK
 			pthread_create(&thread[0],NULL,&thread_and,(void*)in[0]); // Function for getting carry... 
 			pthread_create(&thread[1],NULL,&thread_xor,(void*)in[1]); // Function for getting bit...
 			
-			pthread_join(thread[0],(void **)&carry);
-			pthread_join(thread[1],(void **)&Result[i]);
+			pthread_join(thread[0],(void **)&b1);
+			pthread_join(thread[1],(void **)&b2);
+
 			//bootsAND(carry,&a[i],&b[i],EK);
 			//bootsXOR(&Result[i],&a[i],&b[i],EK);
 		}
@@ -145,6 +151,7 @@ LweSample* CipherAdd(LweSample* a,LweSample* b,const TFheGateBootstrappingCloudK
 
 		}
 	}
+
 	return Result;
 }
 LweSample* CipherAdd(LweSample* a,LweSample* b,const TFheGateBootstrappingCloudKeySet* EK,int minbit) // special Add functions used for Multiplications
@@ -203,7 +210,8 @@ LweSample* CipherAdd(LweSample* a,LweSample* b,const TFheGateBootstrappingCloudK
                         //bootsMUX(carry,b1,carry,&a[i],EK);
                 }
         }
-        return Result;
+        
+	return Result;
 }
 
 LweSample* CipherSub(LweSample* a,LweSample* b,const TFheGateBootstrappingCloudKeySet* EK)
